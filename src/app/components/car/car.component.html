@@ -2,19 +2,23 @@
     <thead>
       <tr>
         <th>Id</th>
+        <th>Fotoğraf</th>
         <th>Marka</th>
         <th>Renk</th>
         <th>Model Yılı</th>
         <th>Günlük Fiyat</th>
         <th>Açıklama</th>
+        <th></th>
       </tr>
     </thead>
-    <tr *ngFor="let carDetail of carDetails">
+    <tr *ngFor="let carDetail of carDetails" style="border-bottom: 1px solid lightgrey">
       <td>{{ carDetail.id }}</td>
+      <td style="width: 220px; padding-right: 10px;" ><img src="{{ carDetail.imagePath }}" class="card-img-top" alt="..."></td>
       <td>{{ carDetail.brandName }}</td>
       <td>{{ carDetail.colorName }}</td>
       <td>{{ carDetail.modelYear }}</td>
-      <td>{{ carDetail.dailyPrice }}</td>
+      <td>{{ carDetail.dailyPrice }}₺</td>
       <td>{{ carDetail.description }}</td>
+      <td><button routerLink="/car-detail/{{ carDetail.id }}" type="button" class="btn btn-outline-dark">Detaylı İncele</button></td>
     </tr>
   </table>
